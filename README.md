@@ -11,8 +11,7 @@ In this quiz, the player will be able to:
 
 ## Wireframes
 
-<img width="987" alt="Kuiz" src="https://user-images.githubusercontent.com/92707180/155824675-cb1e6da2-3ce5-49eb-9313-075692a7c8a6.png">
-
+<img width="1031" alt="Kuiz" src="https://user-images.githubusercontent.com/92707180/155940546-fa26b2f9-ab65-445e-b05a-94ff1bdd0c47.png">
 
 ## Technologies, Libraries, APIs
 * JavaScript
