@@ -1,12 +1,12 @@
 # Kuiz
 
-Kuiz is a single player trivia, that ask the player to chose a category and answer some random questions in a limited time, then see how far the player can go (max score).
+Kuiz is a single player trivia, that ask the player to chose a category and answer some random questions in a limited time, then see how many questions can the player get right.
 
 ## Functionality & MVPs
 
 In this quiz, the player will be able to:
 * chose a trivia category
-* answer random questions from the selected category
+* answer random questions from the selected category in limited time
 * display the highest score 
 
 ## Wireframes
