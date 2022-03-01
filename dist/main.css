@@ -110,10 +110,51 @@
   \*********************************************************************************************************/
 /* SOCIAL LINKS */
 
-.footer-social-links {
+.social-icons {
+    padding: 13px;
+    background-color: #00506b;
+    text-align: center;
+}
+
+.social-icons a {
+    color: #fff;
+    line-height: 30px;
+    font-size: 30px;
+    margin: 0 5px;
+    text-decoration: none;
+
+}
+
+.social-icons a i {
+    line-height: 30px;
+    font-size: 30px;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);
+}
+
+.social-icons a:hover i {
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.5);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.5);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.5);
+    transition: all 200ms ease-in;
+    transform: scale(1.5);
+}
+
+/*.footer-social-links {
     font-size: 14px;
     text-align: center;
-    /*margin-top: 20%;*/
+    margin-top: 20%;
 }
 
 .footer-social-links a {
@@ -174,7 +215,7 @@
 
 .footer-social-links a:hover:before {
     background: #111;
-}
+} */
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
@@ -188,7 +229,6 @@
   font-family: "Comic Sans MS";
   margin: 0;
   padding: 0;
-  color: #333;
 }
 
 h1,
@@ -200,7 +240,7 @@ h4 {
 
 h1 {
   font-size: 5.4rem;
-  color: #124068;
+  color: #00506b;
   margin-bottom: 5rem;
 }
 
@@ -213,7 +253,7 @@ h2 {
   font-size: 3.2rem;
   margin-bottom: 4rem;
   font-weight: 700;
-  color: #123d63;
+  color: #001820;
   text-align: center;
 }
 
@@ -225,13 +265,13 @@ h3 {
 /* UTILITIES */
 .container {
   width: 100vw;
-  height: 95vh;
+  height: 93vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 80rem;
+  max-width: 85rem;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0rem;
 }
 
 .container > * {
@@ -266,10 +306,10 @@ h3 {
   padding: 1rem 0;
   width: 20rem;
   text-align: center;
-  border: 0.1rem solid #124068;
+  border: 0.1rem solid #00506b;
   margin-bottom: 1rem;
   text-decoration: none;
-  color: #124068;
+  color: #00506b;
   background-color: white;
 }
 
