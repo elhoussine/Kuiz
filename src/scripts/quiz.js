@@ -63,8 +63,8 @@ export default class Quiz {
         this.score = 0;
         this.availableQuesions = [...this.questions];
         this.getNewQuestion();
-        this.game.classList.remove('hidden');
         this.loader.classList.add('hidden');
+        this.game.classList.remove('hidden');
     };
 
     getNewQuestion = () => {
