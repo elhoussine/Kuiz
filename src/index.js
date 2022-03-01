@@ -1,10 +1,12 @@
-import Quiz from './scripts/quiz';
-require("./scripts/highscores");
-require("./scripts/end");
+import Quiz from "./scripts/quiz";
+import showHighScores from "./scripts/highscores";
+import showEnd from "./scripts/end";
 
 document.addEventListener("DOMContentLoader", () => {
 
 });
+
+const API_URL = 'https://opentdb.com/api.php?amount=10';
 
 window.addEventListener('load', function () {
 
@@ -20,13 +22,8 @@ window.addEventListener('load', function () {
     let end = document.getElementById("end");
     end.classList.add('hidden');
 
-    console.log('loaded');
-
     const loader = document.getElementById('loader');
     loader.classList.add('hidden');
-
-
-    //const showGame = document.getElementById("show-game");
 
     document.querySelectorAll('.play').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -36,18 +33,17 @@ window.addEventListener('load', function () {
             end.classList.add('hidden');
 
             const quiz = new Quiz();
-            quiz.fetchAPI();
+            quiz.fetchAPI(API_URL);
         });
     });
 
-    // showGame.addEventListener('click', () => {
-    //     loader.classList.remove('hidden');
-    //     home.classList.add('hidden');
-    //     game.classList.remove('hidden');
-    //     highScores.classList.add('hidden');
-    //     end.classList.add('hidden');
+    const highScoresBtn = document.getElementById("show-highscores");
 
-    //     const quiz = new Quiz();
-    //     quiz.fetchAPI();
-    // });
+    highScoresBtn.addEventListener('click', () => {
+        loader.classList.remove('hidden');
+        home.classList.add('hidden');
+        game.classList.add('hidden');
+        end.classList.add('hidden');
+        showHighScores(loader, highScores);
+    });
 })

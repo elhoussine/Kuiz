@@ -1,3 +1,5 @@
+import showEnd from "./end";
+//require("./scripts/end");
 export default class Quiz {
     constructor() {
         this.question = document.getElementById('question');
@@ -15,15 +17,12 @@ export default class Quiz {
 
         this.questions = [];
 
-        //CONSTANTS
         this.CORRECT_BONUS = 10;
-        this.MAX_QUESTIONS = 3;
+        this.MAX_QUESTIONS = 0;
     }
 
-    fetchAPI = () => {
-        fetch(
-                'https://opentdb.com/api.php?amount=100&category=9&difficulty=easy&type=multiple'
-            )
+    fetchAPI = (url) => {
+        fetch(url)
             .then((res) => {
                 return res.json();
             })
@@ -71,7 +70,11 @@ export default class Quiz {
         if (this.availableQuesions.length === 0 || this.questionCounter >= this.MAX_QUESTIONS) {
             localStorage.setItem('mostRecentScore', this.score);
             //go to the end page
-            return window.location.assign('/end.html');
+            //return window.location.assign('/end.html');
+            this.game.classList.add('hidden');
+            this.loader.classList.remove('hidden');
+            showEnd(this.loader);
+            return;
         }
         this.questionCounter++;
         this.progressText.innerText = `Question ${this.questionCounter}/${this.MAX_QUESTIONS}`;
@@ -80,7 +83,7 @@ export default class Quiz {
 
         const questionIndex = Math.floor(Math.random() * this.availableQuesions.length);
         this.currentQuestion = this.availableQuesions[questionIndex];
-        question.innerHTML = this.currentQuestion.question;
+        this.question.innerHTML = this.currentQuestion.question;
 
         this.choices.forEach((choice) => {
             const number = choice.dataset['number'];
@@ -123,4 +126,16 @@ export default class Quiz {
         this.score += num;
         this.scoreText.innerText = this.score;
     };
+
+    showHighScores = (loader) => {
+        loader.classList.remove('hidden');
+        const highScoresList = document.getElementById("highScoresList");
+        const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+        highScoresList.innerHTML = highScores
+            .map(score => {
+                return `<li class="high-score">${score.name} - ${score.score}</li>`;
+            })
+            .join("");
+    }
 }

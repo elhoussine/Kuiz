@@ -1,5 +1,6 @@
 @import "./styles/game.css";
 @import "./styles/highscores.css";
+@import "./styles/footer.css";
 
 :root {
     background-color: #7aabd659; // #ecf5ff;
@@ -8,7 +9,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Comic Sans MS'; //Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
@@ -33,10 +34,11 @@ h1>span {
 }
 
 h2 {
-    font-size: 4.2rem;
+    font-size: 3.2rem;
     margin-bottom: 4rem;
     font-weight: 700;
     color: #123d63;
+    text-align: center;
 }
 
 h3 {
@@ -48,7 +50,7 @@ h3 {
 
 .container {
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
