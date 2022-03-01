@@ -1,6 +1,5 @@
 import Quiz from "./scripts/quiz";
 import showHighScores from "./scripts/highscores";
-import showEnd from "./scripts/end";
 
 document.addEventListener("DOMContentLoader", () => {
 
