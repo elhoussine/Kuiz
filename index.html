@@ -14,16 +14,27 @@
 <body>
     <div class="container">
 
-      <div id="loader"></div>
+      <div id="loader" class="hidden"></div>
 
       <div id="home" class="flex-center flex-column">
         <h1>Kuiz</h1>
         <h3>Kuiz is a single-player trivia game, which asks the player to answer a series of random general knowledge questions and then displays the score at the end.</h3>
-        <a class="btn play" id="show-game" href="#">Play</a>
+        <a class="btn start" id="show-quiz" href="#">Start</a>
         <a class="btn" id="show-highscores" href="#">High Scores</a>
       </div>
 
-      <div id="game" class="justify-center flex-column hidden">
+      <div id="select-size" class="flex-center flex-column hidden">
+        <h1>Kuiz</h1>
+        <h3>How many questions would you like to see ?</h3>
+        <a class="btn size" id="" data-size="5" href="#">5</a>
+        <a class="btn size" id="" data-size="10" href="#">10</a>
+        <a class="btn size" id="" data-size="20" href="#">20</a>
+        <a class="btn size" id="" data-size="30" href="#">30</a>
+        <a class="btn size" id="" data-size="50" href="#">50</a>
+        <!-- <a class="btn size" id="" data-size="100" href="#">100</a> -->
+      </div>
+
+      <div id="quiz" class="justify-center flex-column hidden">
         <div id="hud">
           <div id="hud-item">
             <p id="progressText" class="hud-prefix">
@@ -61,13 +72,13 @@
         </div>
       </div>
 
-      <div id="highScores" class="flex-center flex-column">
+      <div id="highScores" class="flex-center flex-column hidden">
         <h1 id="">High Scores</h1>
         <ul id="highScoresList"></ul>
         <a class="btn go-home" href="#">Go Home</a>
       </div>
 
-      <div id="end" class="flex-center flex-column">
+      <div id="end" class="flex-center flex-column hidden">
         <h1 id="finalScore"></h1>
         <form>
           <input
@@ -85,7 +96,7 @@
             Save
           </button>
         </form>
-        <a class="btn play" id="play-again" href="#">Play Again</a>
+        <a class="btn start" id="play-again" href="#">Play Again</a>
         <a class="btn go-home" href="#">Go Home</a>
       </div>
 

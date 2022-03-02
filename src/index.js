@@ -5,37 +5,44 @@ document.addEventListener("DOMContentLoader", () => {
 
 });
 
-const API_URL = 'https://opentdb.com/api.php?amount=10&category=9&type=multiple';
-
 window.addEventListener('load', function () {
 
-    let home = document.getElementById("home");
-    home.classList.remove('hidden');
+    const home = document.getElementById("home");
+    //home.classList.remove('hidden');
 
-    let game = document.getElementById("game");
-    game.classList.add('hidden');
+    const quiz = document.getElementById("quiz");
+    //quiz.classList.add('hidden');
 
-    let highScores = document.getElementById("highScores");
-    highScores.classList.add('hidden');
+    const highScores = document.getElementById("highScores");
+    //highScores.classList.add('hidden');
 
-    let end = document.getElementById("end");
-    end.classList.add('hidden');
+    const end = document.getElementById("end");
+    //end.classList.add('hidden');
 
     const loader = document.getElementById('loader');
-    loader.classList.add('hidden');
+    //loader.classList.add('hidden');
 
     const highScoresBtn = document.getElementById("show-highscores");
 
-    document.querySelectorAll('.play').forEach(btn => {
+    const sizeElement = document.getElementById('select-size');
+
+    document.querySelectorAll('.start').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            home.classList.add('hidden');
+            end.classList.add('hidden');
+            sizeElement.classList.remove('hidden');
+        });
+    });
+
+    document.querySelectorAll('.size').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             loader.classList.remove('hidden');
-            home.classList.add('hidden');
-            highScores.classList.add('hidden');
-            end.classList.add('hidden');
-
-            const quiz = new Quiz();
-            quiz.fetchAPI(API_URL);
+            sizeElement.classList.add('hidden');
+            const size = e.target.dataset['size'];
+            const quiz = new Quiz(size, sizeElement);
+            quiz.start();
         });
     });
 
@@ -43,7 +50,7 @@ window.addEventListener('load', function () {
         e.preventDefault();
         loader.classList.remove('hidden');
         home.classList.add('hidden');
-        game.classList.add('hidden');
+        quiz.classList.add('hidden');
         end.classList.add('hidden');
         showHighScores(loader, highScores);
     });
@@ -52,7 +59,7 @@ window.addEventListener('load', function () {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             loader.classList.add('hidden');
-            game.classList.add('hidden');
+            quiz.classList.add('hidden');
             highScores.classList.add('hidden');
             end.classList.add('hidden');
             home.classList.remove('hidden');

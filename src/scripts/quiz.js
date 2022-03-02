@@ -1,13 +1,13 @@
 import showEnd from "./end";
 export default class Quiz {
-    constructor() {
+    constructor(size = 10) {
         this.question = document.getElementById('question');
         this.choices = Array.from(document.getElementsByClassName('choice-container'));
         this.progressText = document.getElementById('progressText');
         this.scoreText = document.getElementById('score');
         this.progressBarFull = document.getElementById('progressBarFull');
         this.loader = document.getElementById('loader');
-        this.game = document.getElementById('game');
+        this.quiz = document.getElementById('quiz');
         this.currentQuestion = {};
         this.acceptingAnswers = false;
         this.score = 0;
@@ -18,12 +18,13 @@ export default class Quiz {
 
         this.CORRECT_BONUS = 10;
         this.MAX_QUESTIONS = 0;
+        this.API_URL = 'https://opentdb.com/api.php?amount=' + size + '&category=9&type=multiple';
 
         this.incrementScore(0);
     }
 
-    fetchAPI = (url) => {
-        fetch(url)
+    start = () => {
+        fetch(this.API_URL)
             .then((res) => {
                 return res.json();
             })
@@ -50,7 +51,7 @@ export default class Quiz {
 
                 this.MAX_QUESTIONS = this.questions.length;
 
-                this.startGame();
+                this.startQuiz();
             })
             .catch((err) => {
                 console.error(err);
@@ -58,21 +59,20 @@ export default class Quiz {
     };
 
 
-    startGame = () => {
+    startQuiz = () => {
         this.questionCounter = 0;
         this.score = 0;
         this.availableQuesions = [...this.questions];
         this.getNewQuestion();
         this.loader.classList.add('hidden');
-        this.game.classList.remove('hidden');
+        this.quiz.classList.remove('hidden');
     };
 
     getNewQuestion = () => {
         if (this.availableQuesions.length === 0 || this.questionCounter >= this.MAX_QUESTIONS) {
             localStorage.setItem('mostRecentScore', this.score);
             //go to the end page
-            //return window.location.assign('/end.html');
-            this.game.classList.add('hidden');
+            this.quiz.classList.add('hidden');
             this.loader.classList.remove('hidden');
             showEnd(this.loader);
             return;

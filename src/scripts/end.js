@@ -9,10 +9,9 @@ export default function showEnd(loader) {
         const saveScoreBtn = document.getElementById('saveScoreBtn');
         const finalScore = document.getElementById('finalScore');
         const mostRecentScore = localStorage.getItem('mostRecentScore');
-        console.log(mostRecentScore);
         const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
-        const MAX_HIGH_SCORES = 5;
+        //const MAX_HIGH_SCORES = 5;
 
         finalScore.innerText = mostRecentScore;
 
@@ -36,7 +35,6 @@ export default function showEnd(loader) {
             highScores.splice(5);
 
             localStorage.setItem('highScores', JSON.stringify(highScores));
-            //window.location.assign('/');
             endDiv.classList.add('hidden');
             loader.classList.remove('hidden');
             showHighScores(loader, document.getElementById("highScores"));
