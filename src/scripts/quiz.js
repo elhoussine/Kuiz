@@ -1,9 +1,8 @@
 import showEnd from "./end";
-//require("./scripts/end");
 export default class Quiz {
     constructor() {
         this.question = document.getElementById('question');
-        this.choices = Array.from(document.getElementsByClassName('choice-text'));
+        this.choices = Array.from(document.getElementsByClassName('choice-container'));
         this.progressText = document.getElementById('progressText');
         this.scoreText = document.getElementById('score');
         this.progressBarFull = document.getElementById('progressBarFull');
@@ -69,6 +68,7 @@ export default class Quiz {
     getNewQuestion = () => {
         if (this.availableQuesions.length === 0 || this.questionCounter >= this.MAX_QUESTIONS) {
             localStorage.setItem('mostRecentScore', this.score);
+            console.log(localStorage.getItem('mostRecentScore'));
             //go to the end page
             //return window.location.assign('/end.html');
             this.game.classList.add('hidden');
@@ -86,6 +86,7 @@ export default class Quiz {
         this.question.innerHTML = this.currentQuestion.question;
 
         this.choices.forEach((choice) => {
+            choice = choice.querySelector('.choice-text');
             const number = choice.dataset['number'];
             choice.innerHTML = this.currentQuestion['choice' + number];
         });
@@ -102,22 +103,27 @@ export default class Quiz {
                 if (!this.acceptingAnswers) return;
 
                 this.acceptingAnswers = false;
-                const selectedChoice = e.target;
+                const selectedChoice = e.target.parentElement.querySelector('.choice-text');
                 const selectedAnswer = selectedChoice.dataset['number'];
 
                 const classToApply =
                     selectedAnswer == this.currentQuestion.answer ? 'correct' : 'incorrect';
-
+                const correctChoice = document.querySelector('.choice-text[data-number="' + this.currentQuestion.answer + '"]')
                 if (classToApply === 'correct') {
                     this.incrementScore(this.CORRECT_BONUS);
+                } else {
+                    setTimeout(() => {
+                        correctChoice.parentElement.classList.add('correct');
+                    }, 200);
                 }
 
                 selectedChoice.parentElement.classList.add(classToApply);
 
                 setTimeout(() => {
                     selectedChoice.parentElement.classList.remove(classToApply);
+                    correctChoice.parentElement.classList.remove('correct');
                     this.getNewQuestion();
-                }, 1000);
+                }, 1500);
             });
         });
     }
@@ -127,15 +133,15 @@ export default class Quiz {
         this.scoreText.innerText = this.score;
     };
 
-    showHighScores = (loader) => {
-        loader.classList.remove('hidden');
-        const highScoresList = document.getElementById("highScoresList");
-        const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    // showHighScores = (loader) => {
+    //     loader.classList.remove('hidden');
+    //     const highScoresList = document.getElementById("highScoresList");
+    //     const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
-        highScoresList.innerHTML = highScores
-            .map(score => {
-                return `<li class="high-score">${score.name} - ${score.score}</li>`;
-            })
-            .join("");
-    }
+    //     highScoresList.innerHTML = highScores
+    //         .map(score => {
+    //             return `<li class="high-score">${score.name} - ${score.score}</li>`;
+    //         })
+    //         .join("");
+    // }
 }

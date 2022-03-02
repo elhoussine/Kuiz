@@ -1,4 +1,4 @@
-import showHighScores from "./highscores";
+import showHighScores from "./score";
 export default function showEnd(loader) {
     setTimeout(() => {
         loader.classList.add('hidden');
@@ -9,7 +9,7 @@ export default function showEnd(loader) {
         const saveScoreBtn = document.getElementById('saveScoreBtn');
         const finalScore = document.getElementById('finalScore');
         const mostRecentScore = localStorage.getItem('mostRecentScore');
-
+        console.log(mostRecentScore);
         const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
         const MAX_HIGH_SCORES = 5;

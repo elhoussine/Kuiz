@@ -26,11 +26,17 @@
 }
 
 .correct {
-    background-color: #398049;
+    background-color: #54b46a;
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
 }
 
 .incorrect {
-    background-color: #d64755;
+    background-color: #ff4759;
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
 }
 
 /* HUD */

@@ -1,11 +1,11 @@
 import Quiz from "./scripts/quiz";
-import showHighScores from "./scripts/highscores";
+import showHighScores from "./scripts/score";
 
 document.addEventListener("DOMContentLoader", () => {
 
 });
 
-const API_URL = 'https://opentdb.com/api.php?amount=10';
+const API_URL = 'https://opentdb.com/api.php?amount=10&category=9&type=multiple';
 
 window.addEventListener('load', function () {
 
