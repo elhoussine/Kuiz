@@ -1,36 +1,42 @@
 import Quiz from "./scripts/quiz";
 import showHighScores from "./scripts/score";
 
-document.addEventListener("DOMContentLoader", () => {
-
-});
-
 window.addEventListener('load', function () {
 
     const home = document.getElementById("home");
-    //home.classList.remove('hidden');
-
     const quiz = document.getElementById("quiz");
-    //quiz.classList.add('hidden');
-
     const highScores = document.getElementById("highScores");
-    //highScores.classList.add('hidden');
-
     const end = document.getElementById("end");
-    //end.classList.add('hidden');
-
     const loader = document.getElementById('loader');
-    //loader.classList.add('hidden');
-
     const highScoresBtn = document.getElementById("show-highscores");
-
     const sizeElement = document.getElementById('select-size');
+    const category = document.getElementById('category');
+    let categoryValue = 0;
 
     document.querySelectorAll('.start').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+            document.querySelector('.size[data-size="50"]').classList.remove('hidden');
+            document.querySelector('.size[data-size="30"]').classList.remove('hidden');
             home.classList.add('hidden');
             end.classList.add('hidden');
+            quiz.classList.add('hidden');
+            category.classList.remove('hidden');
+        });
+    });
+
+    document.querySelectorAll('.category').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            category.classList.add('hidden');
+            categoryValue = parseInt(e.target.dataset['value']);
+            if (categoryValue === 19 || categoryValue === 24 || categoryValue === 26) {
+                document.querySelector('.size[data-size="50"]').classList.add('hidden');
+            }
+            if (categoryValue === 25) {
+                document.querySelector('.size[data-size="50"]').classList.add('hidden');
+                document.querySelector('.size[data-size="30"]').classList.add('hidden');
+            }
             sizeElement.classList.remove('hidden');
         });
     });
@@ -40,8 +46,8 @@ window.addEventListener('load', function () {
             e.preventDefault();
             loader.classList.remove('hidden');
             sizeElement.classList.add('hidden');
-            const size = e.target.dataset['size'];
-            const quiz = new Quiz(size, sizeElement);
+            const questionsSize = e.target.dataset['size'];
+            const quiz = new Quiz(categoryValue, questionsSize);
             quiz.start();
         });
     });

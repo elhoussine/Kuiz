@@ -76,9 +76,13 @@ h3 {
     flex-direction: column;
 }
 
-.flex-row {
+#category>div {
     display: flex;
-    flex-direction: row;
+    width: 100%;
+}
+
+#category>div>a {
+    margin: 15px;
 }
 
 .flex-center {

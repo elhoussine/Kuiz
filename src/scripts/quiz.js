@@ -1,6 +1,6 @@
 import showEnd from "./end";
 export default class Quiz {
-    constructor(size = 10) {
+    constructor(category, size = 10) {
         this.question = document.getElementById('question');
         this.choices = Array.from(document.getElementsByClassName('choice-container'));
         this.progressText = document.getElementById('progressText');
@@ -18,7 +18,14 @@ export default class Quiz {
 
         this.CORRECT_BONUS = 10;
         this.MAX_QUESTIONS = 0;
-        this.API_URL = 'https://opentdb.com/api.php?amount=' + size + '&category=9&type=multiple';
+
+        if (category > 0) {
+            category = `&category=${category}`;
+        } else {
+            category = ``;
+        }
+
+        this.API_URL = `https://opentdb.com/api.php?amount=${size}${category}&type=multiple`;
 
         this.incrementScore(0);
     }

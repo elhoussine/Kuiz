@@ -18,9 +18,38 @@
 
       <div id="home" class="flex-center flex-column">
         <h1>Kuiz</h1>
-        <h3>Kuiz is a single-player trivia game, which asks the player to select a number of questions to be shown, then answer those questions based on general knowledge, and lastly display the final score.</h3>
+        <h3>Kuiz is a single-player trivia game, which asks the player to select a category and a number of questions to be shown, then answer those questions based on general knowledge, and lastly display the final score.</h3>
         <a class="btn start" id="show-quiz" href="#">Start</a>
         <a class="btn" id="show-highscores" href="#">High Scores</a>
+      </div>
+
+      <div id="category" class="flex-center flex-column hidden">
+        <h1>Kuiz</h1>
+        <h3>Please select a category of your choice</h3>
+        <div>
+          <a class="btn category" id="" data-value="0" href="#">Random</a>
+          <a class="btn category" id="" data-value="9" href="#">Knowledge</a>
+          <a class="btn category" id="" data-value="10" href="#">Books</a>
+          <a class="btn category" id="" data-value="11" href="#">Film</a>
+        </div>
+        <div>
+          <a class="btn category" id="" data-value="12" href="#">Music</a>
+          <a class="btn category" id="" data-value="14" href="#">Television</a>
+          <a class="btn category" id="" data-value="15" href="#">Video Games</a>
+          <a class="btn category" id="" data-value="18" href="#">Computers</a>
+        </div>
+        <div>
+          <a class="btn category" id="" data-value="19" href="#">Mathematics</a>
+          <a class="btn category" id="" data-value="21" href="#">Sports</a>
+          <a class="btn category" id="" data-value="22" href="#">Geography</a>
+          <a class="btn category" id="" data-value="23" href="#">History</a>
+        </div>
+        <div>
+          <a class="btn category" id="" data-value="24" href="#">Politics</a>
+          <a class="btn category" id="" data-value="25" href="#">Art</a>
+          <a class="btn category" id="" data-value="26" href="#">Celebrities</a>
+          <a class="btn category" id="" data-value="27" href="#">Animals</a>
+        </div>
       </div>
 
       <div id="select-size" class="flex-center flex-column hidden">
@@ -31,7 +60,6 @@
         <a class="btn size" id="" data-size="20" href="#">20</a>
         <a class="btn size" id="" data-size="30" href="#">30</a>
         <a class="btn size" id="" data-size="50" href="#">50</a>
-        <!-- <a class="btn size" id="" data-size="100" href="#">100</a> -->
       </div>
 
       <div id="quiz" class="justify-center flex-column hidden">
