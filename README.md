@@ -1,6 +1,6 @@
 # Kuiz
 
-Kuiz is a single-player trivia game, which asks the player to answer a series of random general knowledge questions and then displays the score at the end.
+Kuiz is a single-player trivia game, which asks the player to select a number of questions to be shown, then answer those questions based on general knowledge, and lastly display the final score.
 
 ## Functionality & MVPs
 
