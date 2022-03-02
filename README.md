@@ -1,6 +1,6 @@
 # Kuiz
 
-Kuiz is a single player trivia, that ask the player to chose a category and answer some random questions in a limited time, then see how many questions can the player get right.
+Kuiz is a single-player trivia game, which asks the player to answer a series of random general knowledge questions and then displays the score at the end.
 
 ## Functionality & MVPs
 
@@ -18,3 +18,7 @@ In this quiz, the player will be able to:
 * HTML
 * CSS
 * trivia API
+
+## Kuiz Link
+
+* https://elhoussine.github.io/Kuiz/
