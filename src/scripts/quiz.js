@@ -18,6 +18,8 @@ export default class Quiz {
 
         this.CORRECT_BONUS = 10;
         this.MAX_QUESTIONS = 0;
+
+        this.incrementScore(0);
     }
 
     fetchAPI = (url) => {
@@ -68,7 +70,6 @@ export default class Quiz {
     getNewQuestion = () => {
         if (this.availableQuesions.length === 0 || this.questionCounter >= this.MAX_QUESTIONS) {
             localStorage.setItem('mostRecentScore', this.score);
-            console.log(localStorage.getItem('mostRecentScore'));
             //go to the end page
             //return window.location.assign('/end.html');
             this.game.classList.add('hidden');

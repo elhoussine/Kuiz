@@ -24,8 +24,11 @@ window.addEventListener('load', function () {
     const loader = document.getElementById('loader');
     loader.classList.add('hidden');
 
+    const highScoresBtn = document.getElementById("show-highscores");
+
     document.querySelectorAll('.play').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
             loader.classList.remove('hidden');
             home.classList.add('hidden');
             highScores.classList.add('hidden');
@@ -36,13 +39,23 @@ window.addEventListener('load', function () {
         });
     });
 
-    const highScoresBtn = document.getElementById("show-highscores");
-
-    highScoresBtn.addEventListener('click', () => {
+    highScoresBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         loader.classList.remove('hidden');
         home.classList.add('hidden');
         game.classList.add('hidden');
         end.classList.add('hidden');
         showHighScores(loader, highScores);
+    });
+
+    document.querySelectorAll('.go-home').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            loader.classList.add('hidden');
+            game.classList.add('hidden');
+            highScores.classList.add('hidden');
+            end.classList.add('hidden');
+            home.classList.remove('hidden');
+        });
     });
 })
