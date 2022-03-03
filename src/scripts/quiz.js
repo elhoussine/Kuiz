@@ -13,11 +13,14 @@ export default class Quiz {
         this.score = 0;
         this.questionCounter = 0;
         this.availableQuesions = [];
+        this.timerEl = document.getElementById('timer');
+        this.time = 15;
+        this.intervalHandler = 0;
 
         this.questions = [];
 
         this.CORRECT_BONUS = 10;
-        this.MAX_QUESTIONS = 0;
+        this.MAX_QUESTIONS = size;
 
         if (category > 0) {
             category = `&category=${category}`;
@@ -57,7 +60,6 @@ export default class Quiz {
                 });
 
                 this.MAX_QUESTIONS = this.questions.length;
-
                 this.startQuiz();
             })
             .catch((err) => {
@@ -76,14 +78,19 @@ export default class Quiz {
     };
 
     getNewQuestion = () => {
+        window.clearInterval(this.intervalHandler);
+        this.time = 15;
+        this.timerEl.innerHTML = this.time;
         if (this.availableQuesions.length === 0 || this.questionCounter >= this.MAX_QUESTIONS) {
             localStorage.setItem('mostRecentScore', this.score);
             //go to the end page
             this.quiz.classList.add('hidden');
             this.loader.classList.remove('hidden');
-            showEnd(this.loader);
-            return;
+            return showEnd(this.loader);
         }
+
+        this.intervalHandler = window.setInterval(this.checkTimer, 1000);
+
         this.questionCounter++;
         this.progressText.innerText = `Question ${this.questionCounter}/${this.MAX_QUESTIONS}`;
         //Update the progress bar
@@ -101,14 +108,17 @@ export default class Quiz {
 
         this.availableQuesions.splice(questionIndex, 1);
         this.acceptingAnswers = true;
-
         this.checkChoice();
     };
 
-    checkChoice() {
+    checkChoice = () => {
         this.choices.forEach((choice) => {
             choice.addEventListener('click', (e) => {
                 if (!this.acceptingAnswers) return;
+
+                clearInterval(this.intervalHandler);
+                this.time = 15;
+                this.timerEl.innerHTML = this.time;
 
                 this.acceptingAnswers = false;
                 const selectedChoice = e.target.parentElement.querySelector('.choice-text');
@@ -141,15 +151,18 @@ export default class Quiz {
         this.scoreText.innerText = this.score;
     };
 
-    // showHighScores = (loader) => {
-    //     loader.classList.remove('hidden');
-    //     const highScoresList = document.getElementById("highScoresList");
-    //     const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-
-    //     highScoresList.innerHTML = highScores
-    //         .map(score => {
-    //             return `<li class="high-score">${score.name} - ${score.score}</li>`;
-    //         })
-    //         .join("");
-    // }
+    checkTimer = () => {
+        if (this.time === 0) {
+            setTimeout(() => {
+                this.timerEl.classList.remove('blink');
+                return this.getNewQuestion();
+            }, 1000);
+        }
+        if (this.time === 5) {
+            this.timerEl.classList.add('blink');
+        }
+        let currentTimer = this.time < 10 ? '0' + this.time : this.time;
+        this.timerEl.innerHTML = currentTimer;
+        this.time--;
+    }
 }

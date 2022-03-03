@@ -11,33 +11,38 @@ export default function showEnd(loader) {
         const mostRecentScore = localStorage.getItem('mostRecentScore');
         const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
-        //const MAX_HIGH_SCORES = 5;
-
         finalScore.innerText = mostRecentScore;
 
-        username.addEventListener('keyup', () => {
-            saveScoreBtn.disabled = !username.value;
-        });
+        const scoreFormEl = document.getElementById('score-form');
 
-        saveScoreBtn.addEventListener('click', (e) => {
-            saveHighScore(e);
-        });
+        if (parseInt(mostRecentScore) === 0) {
+            scoreFormEl.classList.add('hidden');
+        } else {
+            scoreFormEl.classList.remove('hidden');
+            username.addEventListener('keyup', () => {
+                saveScoreBtn.disabled = !username.value;
+            });
 
-        const saveHighScore = (e) => {
-            e.preventDefault();
+            saveScoreBtn.addEventListener('click', (e) => {
+                saveHighScore(e);
+            });
 
-            const score = {
-                score: mostRecentScore,
-                name: username.value,
+            const saveHighScore = (e) => {
+                e.preventDefault();
+
+                const score = {
+                    score: mostRecentScore,
+                    name: username.value,
+                };
+                highScores.push(score);
+                highScores.sort((a, b) => b.score - a.score);
+                highScores.splice(5);
+
+                localStorage.setItem('highScores', JSON.stringify(highScores));
+                endDiv.classList.add('hidden');
+                loader.classList.remove('hidden');
+                showHighScores(loader, document.getElementById("highScores"));
             };
-            highScores.push(score);
-            highScores.sort((a, b) => b.score - a.score);
-            highScores.splice(5);
-
-            localStorage.setItem('highScores', JSON.stringify(highScores));
-            endDiv.classList.add('hidden');
-            loader.classList.remove('hidden');
-            showHighScores(loader, document.getElementById("highScores"));
-        };
+        }
     }, 200);
 }

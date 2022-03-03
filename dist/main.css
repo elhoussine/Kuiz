@@ -7,7 +7,7 @@
   \***************************************************************************************************/
 .choice-container {
     display: flex;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.9rem;
     width: 100%;
     font-size: 1.8rem;
     border: 0.1rem solid rgb(86, 165, 235, 0.25);
@@ -16,7 +16,7 @@
 
 .choice-container:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    box-shadow: 0 0.6rem 2.4rem 0 rgba(86, 185, 235, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
@@ -73,6 +73,24 @@
     height: 3.4rem;
     background-color: #00506b;
     width: 0%;
+}
+
+.blink {
+    color: rgb(216, 25, 25);
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
 }
 
 /* LOADER */
@@ -271,7 +289,7 @@ h3 {
 
 .btn:hover {
   cursor: pointer;
-  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  box-shadow: 0 0.6rem 2.4rem 0 rgba(86, 185, 235, 0.5);
   transform: translateY(-0.1rem);
   transition: transform 150ms;
 }
