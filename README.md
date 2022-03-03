@@ -4,7 +4,7 @@ Kuiz is a single-player trivia game, which asks the player to select a category 
 
 [Check it out](https://elhoussine.github.io/Kuiz/)
 
-## Functionality & MVPs
+## Features
 
 In this quiz, the player will be able to:
 
@@ -20,9 +20,11 @@ In this quiz, the player will be able to:
 &ensp;<img width="1456" alt="Home page" src="https://user-images.githubusercontent.com/92707180/156650736-86a38914-2b4e-4218-8193-ed1fd4548e74.png">
 
 
+
 * Category page
 
 &ensp;<img width="1456" alt="Category page" src="https://user-images.githubusercontent.com/92707180/156650816-6154396f-f1bb-47f5-8032-36c9c716cfc8.png">
+
 
 
 * Question page
