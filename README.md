@@ -7,24 +7,36 @@ Kuiz is a single-player trivia game, which asks the player to select a category 
 ## Functionality & MVPs
 
 In this quiz, the player will be able to:
-* chose a trivia category of choice
+
+* choose a trivia category of choice
 * select how many questions to be shown
 * answer random questions from the selected category in limited time
 * display the score 
 
 ## Wireframes
+
 * Home page
-&ensp;<img width="1031" alt="Kuiz" src="https://user-images.githubusercontent.com/92707180/156090138-f01b5b17-38f6-4ab3-a094-319b6a4883d0.png">
+
+&ensp;<img width="1456" alt="Home page" src="https://user-images.githubusercontent.com/92707180/156650736-86a38914-2b4e-4218-8193-ed1fd4548e74.png">
+
+
 * Category page
-&ensp;<img width="1031" alt="Kuiz" src="https://user-images.githubusercontent.com/92707180/156090138-f01b5b17-38f6-4ab3-a094-319b6a4883d0.png">
+
+&ensp;<img width="1456" alt="Category page" src="https://user-images.githubusercontent.com/92707180/156650816-6154396f-f1bb-47f5-8032-36c9c716cfc8.png">
+
+
 * Question page
-&ensp;<img width="1031" alt="Kuiz" src="https://user-images.githubusercontent.com/92707180/156090138-f01b5b17-38f6-4ab3-a094-319b6a4883d0.png">
+
+&ensp;<img width="1456" alt="Question page" src="https://user-images.githubusercontent.com/92707180/156650915-160b6a96-0908-49f9-beff-5ff0d511a913.png">
+
 
 ## Technologies, Libraries, APIs
+
 * Vanilla JS
 * HTML5
 * CSS3
 * [trivia API](https://opentdb.com/)
+
     &ensp;The Open Trivia Database provides a completely free JSON API for use in programming projects. Use of this API does not require a API Key, just generate the URL below use it in your own application to retrieve trivia questions.
     &ensp;All data provided by the API is available under the Creative Commons Attribution-ShareAlike 4.0 International License.
 
