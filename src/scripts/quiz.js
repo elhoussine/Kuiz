@@ -112,6 +112,7 @@ export default class Quiz {
             choice.addEventListener('click', (e) => {
                 if (!this.acceptingAnswers) return;
 
+                this.timerEl.classList.remove('blink');
                 clearInterval(this.intervalHandler);
                 this.time = 15;
                 this.timerEl.innerHTML = this.time;
