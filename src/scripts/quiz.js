@@ -149,7 +149,6 @@ export default class Quiz {
 
     checkTimer = () => {
         if (this.time === 0) {
-            clearInterval(this.intervalHandler);
             setTimeout(() => {
                 this.timerEl.classList.remove('blink');
                 return this.getNewQuestion();
