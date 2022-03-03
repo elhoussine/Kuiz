@@ -39,6 +39,14 @@
     transition: background-color 500ms linear;
 }
 
+#quiz {
+    height: 100vh;
+}
+
+#question {
+    height: 12%;
+}
+
 /* HUD */
 
 #hud {
@@ -47,12 +55,33 @@
 }
 
 .hud-prefix {
-    /*text-align: center;*/
+    text-align: center;
     font-size: 2rem;
 }
 
 .hud-main-text {
     text-align: center;
+}
+
+#progressText {
+    text-align: left;
+}
+
+.score {
+    width: 8%;
+}
+
+.timer {
+    width: 57%;
+}
+
+.timer>p {
+    text-align: right;
+}
+
+.timer>h1 {
+    text-align: right;
+    margin-right: 12px;
 }
 
 #progressBar {

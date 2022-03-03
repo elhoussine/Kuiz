@@ -56,16 +56,12 @@ window.addEventListener('load', function () {
         e.preventDefault();
         loader.classList.remove('hidden');
         home.classList.add('hidden');
-        quiz.classList.add('hidden');
-        end.classList.add('hidden');
         showHighScores(loader, highScores);
     });
 
     document.querySelectorAll('.go-home').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            loader.classList.add('hidden');
-            quiz.classList.add('hidden');
             highScores.classList.add('hidden');
             end.classList.add('hidden');
             home.classList.remove('hidden');

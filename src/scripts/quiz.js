@@ -22,11 +22,7 @@ export default class Quiz {
         this.CORRECT_BONUS = 10;
         this.MAX_QUESTIONS = size;
 
-        if (category > 0) {
-            category = `&category=${category}`;
-        } else {
-            category = ``;
-        }
+        category = category > 0 ? `&category=${category}` : '';
 
         this.API_URL = `https://opentdb.com/api.php?amount=${size}${category}&type=multiple`;
 
@@ -78,7 +74,7 @@ export default class Quiz {
     };
 
     getNewQuestion = () => {
-        window.clearInterval(this.intervalHandler);
+        clearInterval(this.intervalHandler);
         this.time = 15;
         this.timerEl.innerHTML = this.time;
         if (this.availableQuesions.length === 0 || this.questionCounter >= this.MAX_QUESTIONS) {
@@ -153,6 +149,7 @@ export default class Quiz {
 
     checkTimer = () => {
         if (this.time === 0) {
+            clearInterval(this.intervalHandler);
             setTimeout(() => {
                 this.timerEl.classList.remove('blink');
                 return this.getNewQuestion();
