@@ -16,17 +16,14 @@ In this quiz, the player will be able to:
 ## Wireframes
 
 * Home page
-
 &ensp;<img width="1456" alt="Home page" src="https://user-images.githubusercontent.com/92707180/156650736-86a38914-2b4e-4218-8193-ed1fd4548e74.png">
 
 
 * Category page
-
 &ensp;<img width="1456" alt="Category page" src="https://user-images.githubusercontent.com/92707180/156650816-6154396f-f1bb-47f5-8032-36c9c716cfc8.png">
 
 
 * Question page
-
 &ensp;<img width="1456" alt="Question page" src="https://user-images.githubusercontent.com/92707180/156650915-160b6a96-0908-49f9-beff-5ff0d511a913.png">
 
 
@@ -37,6 +34,7 @@ In this quiz, the player will be able to:
 * CSS3
 * [trivia API](https://opentdb.com/)
 
-    &ensp;The Open Trivia Database provides a completely free JSON API for use in programming projects. Use of this API does not require a API Key, just generate the URL below use it in your own application to retrieve trivia questions.
-    &ensp;All data provided by the API is available under the Creative Commons Attribution-ShareAlike 4.0 International License.
+      The Open Trivia Database provides a completely free JSON API for use in programming projects. Use of this API does not require a API Key, just generate the URL below use it in your own application to retrieve trivia questions.
+    
+      All data provided by the API is available under the Creative Commons Attribution-ShareAlike 4.0 International License.
 
