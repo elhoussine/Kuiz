@@ -15,7 +15,7 @@ export default class Quiz {
         this.availableQuesions = [];
         this.timerEl = document.getElementById('timer');
         this.time = 15;
-        this.intervalHandler = 0;
+        this.intervalHandler = null;
 
         this.questions = [];
 
@@ -78,6 +78,10 @@ export default class Quiz {
         this.time = 15;
         this.timerEl.innerHTML = this.time;
         if (this.availableQuesions.length === 0 || this.questionCounter >= this.MAX_QUESTIONS) {
+            this.choices.forEach((choice) => {
+                let new_element = choice.cloneNode(true);
+                choice.parentNode.replaceChild(new_element, choice);
+            });
             localStorage.setItem('mostRecentScore', this.score);
             //go to the end page
             this.quiz.classList.add('hidden');
@@ -85,7 +89,7 @@ export default class Quiz {
             return showEnd(this.loader);
         }
 
-        this.intervalHandler = window.setInterval(this.checkTimer, 1000);
+        this.intervalHandler = setInterval(this.checkTimer, 1000);
 
         this.questionCounter++;
         this.progressText.innerText = `Question ${this.questionCounter}/${this.MAX_QUESTIONS}`;
