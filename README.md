@@ -37,7 +37,7 @@ In this quiz, the player will be able to:
 * Vanilla JS
 * HTML5
 * CSS3
-* [trivia API](https://opentdb.com/)
+* [Trivia API](https://opentdb.com/)
 
      The Open Trivia Database provides a completely free JSON API for use in programming projects. Use of this API does not require a API Key, just generate the URL below use it in your own application to retrieve trivia questions.
     
