@@ -17,19 +17,19 @@ In this quiz, the player will be able to:
 
 * Home page
 
-&ensp;<img width="1456" alt="Home page" src="https://user-images.githubusercontent.com/92707180/156650736-86a38914-2b4e-4218-8193-ed1fd4548e74.png">
+&ensp;<img width="1023" alt="Home page" src="https://user-images.githubusercontent.com/92707180/158008531-ad6de9b8-7b60-4608-9b70-7d1825caeb04.png">
 
 
 
 * Category page
 
-&ensp;<img width="1456" alt="Category page" src="https://user-images.githubusercontent.com/92707180/156650816-6154396f-f1bb-47f5-8032-36c9c716cfc8.png">
+&ensp;<img width="1023" alt="Category page" src="https://user-images.githubusercontent.com/92707180/158008554-f5ae0fa3-6918-461a-8077-0f25170dedce.png">
 
 
 
 * Question page
 
-&ensp;<img width="1456" alt="Question page" src="https://user-images.githubusercontent.com/92707180/156650915-160b6a96-0908-49f9-beff-5ff0d511a913.png">
+&ensp;<img width="1023" alt="Question page" src="https://user-images.githubusercontent.com/92707180/158008563-3dcb5a1c-d78f-4670-b898-fcad9785bc3e.png">
 
 
 ## Technologies, Libraries, APIs
