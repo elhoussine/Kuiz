@@ -4,6 +4,10 @@ Kuiz is a single-player trivia game, asks the player to select a trivia category
 
 [Check it out](https://elhoussine.github.io/Kuiz/)
 
+<p align="center">
+  <img width="100%" src="https://github.com/elhoussine/Kuiz/blob/main/assets/kuiz.gif"></img>
+</p>
+
 ## Features
 
 In this quiz, the player will be able to:
